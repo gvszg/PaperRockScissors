@@ -68,12 +68,21 @@ class Game
     end
   end
 
+  def play_again?
+    puts "Play again? (yes/no)"
+    answer = gets.chomp.downcase
+    
+    play unless (answer != 'yes' && answer != 'y')
+    puts "Have Fun!"
+  end
+
   def play
     player.pick_hand
     computer.pick_hand
     player.hand_shape
     computer.hand_shape
     compare_hands
+    play_again?
   end
 end
 
